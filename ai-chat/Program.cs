@@ -23,8 +23,9 @@ class Program
             {
                 exit = true;
             }
-
-            // Log client input
+            else
+            {
+                 // Log client input
             sw.WriteLine(clientText);
             sw.Flush();
 
@@ -40,6 +41,9 @@ class Program
                 sw.WriteLine($"{response.Content[0].Text}");
                 sw.Flush();
             }
+            }
+
+           
         } while (!exit);
     }
 }
