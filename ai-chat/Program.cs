@@ -1,4 +1,5 @@
 ﻿namespace ai_chat;
+
 using OpenAI.Chat;
 class Program
 {
@@ -25,25 +26,25 @@ class Program
             }
             else
             {
-                 // Log client input
-            sw.WriteLine(clientText);
-            sw.Flush();
-
-            if (!string.IsNullOrWhiteSpace(clientText) && clientText.Length > 1)
-            {
-                response = client.CompleteChat(clientText);
-
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("[ASSISTANT]: ");
-                sw.WriteLine("[ASSISTANT]:");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"{response.Content[0].Text}");
-                sw.WriteLine($"{response.Content[0].Text}");
+                // Log client input
+                sw.WriteLine(clientText);
                 sw.Flush();
-            }
+
+                if (!string.IsNullOrWhiteSpace(clientText) && clientText.Length > 1)
+                {
+                    response = client.CompleteChat(clientText);
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("[ASSISTANT]: ");
+                    sw.WriteLine("[ASSISTANT]:");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine($"{response.Content[0].Text}");
+                    sw.WriteLine($"{response.Content[0].Text}");
+                    sw.Flush();
+                }
             }
 
-           
+
         } while (!exit);
     }
 }
